@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<! -- Page Metadata -- >
+	<head>
+		<title> IoT System - Sensehat </title>
+		
+		<!-- CSS FILES -->
+		<link rel="stylesheet" href="styles/shared_style.css">
+		<link rel="stylesheet" href="styles/chart_style.css">
+		<link rel="stylesheet" href="styles/modal_style.css">
+		
+		
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/navScript.js"></script>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="Modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-grid">
+					<p>IP:</p>
+					<input type="text" class="twoCols" id="IP" maxlength="15">
+					<p>API Ver.:</p>
+					<p class="twoCols">0.404</p>
+					<p>Author:</p>
+					<p class="twoCols">Tomasz Wojtkowiak</p>
+					<p id="errorText"></p>
+					<input type="button" class="modalBtn" value="SAVE" onClick="savePrefs()">
+					<p></p>
+					<input type="button" class="modalBtn" value="CANCEL" onClick="closeModal()">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="menuColumn">
+				<ul class="list">
+					<li><input id="chartButton" class="menuButton buttonDisabled" type="button" onClick="callChart()" value="CHART" disabled></li>
+					<li><input id="matrixButton" class="menuButton" type="button" onClick="callMatrix()" value="LED MATRIX"></li>
+					<li><input id="listButton" class="menuButton" type="button" onClick="callList()" value="LIST"></li>
+					<li><input id="settingsButton" class="menuButton" type="button" onClick="callModal()" value="SETTINGS"></li>
+				</ul>
+			</div>
+			<div class="contentColumn">
+				<div class="title">
+					<h>SENSORS CHART</h>
+				</div>
+				<div id="datagrabber" class="container border border-primary rounded datagrabber">
+					<div class="chartcontainer">
+						<canvas id="chart"></canvas>
+					</div>
+					<div class="nav-grid">
+						<div id="chartControl"
+							<ul class="nav">
+								<li><input type="button" id="start" class="menuButton navButton" onClick="startChart()" value="START"></li>
+								<li><input type="button" id="stop" class="menuButton buttonDisabled navButton" onClick="stopChart()" value="STOP"></li>
+								<li><div><span class="info">Sample time: <span id="sampletime"></span> ms</span></div></li>  
+								<li><div><span class="info">Max. number of samples: <span id="samplenumber"></span></span></div></li>  
+							</ul>
+						</div>
+						<div id="chartData">
+							<ul class="nav">
+								<li><input type="button" id="rpy" class="menuButton navButton" onClick="toggleRPY(0)" value="RPY"></li> 
+								<li><input type="button" id="temp" class="menuButton navButton" onClick="toggleTemp(0)" value="TEMPERATURE"></li>
+								<li><input type="button" id="press" class="menuButton navButton" onClick="togglePress(0)" value="PRESSURE"></li>
+								<li><input type="button" id="hum" class="menuButton navButton" onClick="toggleHum(0)" value="HUMIDITY"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<p id="infoBox">CURRENTLY GRABBING: ROLL; PITCH; YAW | DEGREES [deg]</p>
+			</div>
+		</div>
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/chartScript.js"></script>
+		<script type="text/javascript" src="scripts/modalScript.js"></script>
+		<!-- Chart.js library -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<! -- Page Metadata -- >
+	<head>
+		<title> IoT System - Sensehat </title>
+		
+		<!-- CSS FILES -->
+		<link rel="stylesheet" href="styles/shared_style.css">
+		<link rel="stylesheet" href="styles/list_style.css">
+		<link rel="stylesheet" href="styles/modal_style.css">
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/navScript.js"></script>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="Modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-grid">
+					<p>IP:</p>
+					<input type="text" class="twoCols" id="IP" maxlength="15">
+					<p>API Ver.:</p>
+					<p class="twoCols">0.404</p>
+					<p>Author:</p>
+					<p class="twoCols">Tomasz Wojtkowiak</p>
+					<p id="errorText"></p>
+					<input type="button" class="modalBtn" value="SAVE" onClick="savePrefs()">
+					<p></p>
+					<input type="button" class="modalBtn" value="CANCEL" onClick="closeModal()">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="menuColumn">
+				<ul class="list">
+					<li><input id="chartButton" class="menuButton" type="button" onClick="callChart()" value="CHART"></li>
+					<li><input id="matrixButton" class="menuButton" type="button" onClick="callMatrix()" value="LED MATRIX"></li>
+					<li><input id="listButton" class="menuButton buttonDisabled" type="button" onClick="callList()" value="LIST" disabled></li>
+					<li><input id="settingsButton" class="menuButton" type="button" onClick="callModal()" value="SETTINGS"></li>
+				</ul>
+			</div>
+			<div class="contentColumn">
+				<div class="title">
+					<h>DYNAMIC LIST</h>
+				</div>
+				<div class="content-grid">
+					<ul class="list">
+						<input type="button" id="r" class="menuButton" onClick="toggleData(id)" value="ROLL">
+						<input type="button" id="p" class="menuButton" onClick="toggleData(id)" value="PITCH">
+						<input type="button" id="y" class="menuButton" onClick="toggleData(id)" value="YAW">
+						<input type="button" id="temperature" class="menuButton" onClick="toggleData(id)" value="TEMPERATURE">
+						<input type="button" id="pressure" class="menuButton" onClick="toggleData(id)" value="PRESSURE">
+						<input type="button" id="humidity" class="menuButton" onClick="toggleData(id)" value="HUMIDITY">
+						<input type="button" id="left" class="menuButton" onClick="toggleData(id)" value="JOYSTICK_LEFT">
+						<input type="button" id="right" class="menuButton" onClick="toggleData(id)" value="JOYSTICK_RIGHT">
+						<input type="button" id="up" class="menuButton" onClick="toggleData(id)" value="JOYSTICK_UP">
+						<input type="button" id="down" class="menuButton" onClick="toggleData(id)" value="JOYSTICK_DOWN">
+						<input type="button" id="mid" class="menuButton" onClick="toggleData(id)" value="JOYSTICK_CLICK">
+					</ul>
+					<ul class="list readingsList">
+						<p class="rdg" id="rP">ROLL [deg]: <span id="rS"></span></p>
+						<p class="rdg" id="pP">PITCH [deg]: <span id="pS"></span> </p>
+						<p class="rdg" id="yP">YAW [deg]: <span id="yS"></span></p>
+						<p class="rdg" id="temperatureP">TEMPERATURE [degC]: <span id="temperatureS"></span></p>
+						<p class="rdg" id="pressureP">PRESSURE [mBar]: <span id="pressureS"></span></p>
+						<p class="rdg" id="humidityP">HUMIDITY [%]: <span id="humidityS"></span></p>
+						<p class="rdg" id="leftP">JOYSTICK_LEFT [-]: <span id="leftS"></span></p>
+						<p class="rdg" id="rightP">JOYSTICK_RIGHT [-]: <span id="rightS"></span></p>
+						<p class="rdg" id="upP">JOYSTICK_UP [-]: <span id="upS"></span></p>
+						<p class="rdg" id="downP">JOYSTICK_DOWN [-]: <span id="downS"></span></p>
+						<p class="rdg" id="midP">JOYSTICK_CLICK [-]: <span id="midS"></span></p>
+					</ul>
+					<input type="button" id="grab" class="menuButton" onClick="toggleGrabbing()" value="GRAB">
+					<p id="infoBox">READY TO GRAB...</p>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/listScript.js"></script>
+		<script type="text/javascript" src="scripts/modalScript.js"></script>
+		
+	</body>
+</html>

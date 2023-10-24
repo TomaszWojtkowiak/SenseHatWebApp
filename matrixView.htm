@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<!-- Page Metadata -->
+	<head>
+		<title> IoT System - Sensehat </title>
+		
+		<!-- CSS FILES -->
+		<link rel="stylesheet" href="styles/shared_style.css">
+		<link rel="stylesheet" href="styles/modal_style.css">
+		<link rel="stylesheet" href="styles/matrix_style.css">
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/navScript.js"></script>
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<div id="Modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-grid">
+					<p>IP:</p>
+					<input type="text" class="twoCols" id="IP" maxlength="15">
+					<p>API Ver.:</p>
+					<p class="twoCols">0.404</p>
+					<p>Author:</p>
+					<p class="twoCols">Tomasz Wojtkowiak</p>
+					<p id="errorText"></p>
+					<input type="button" class="modalBtn" value="SAVE" onClick="savePrefs()">
+					<p></p>
+					<input type="button" class="modalBtn" value="CANCEL" onClick="closeModal()">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="menuColumn">
+				<ul class="list">
+					<li><input id="chartButton" class="menuButton" type="button" onClick="callChart()" value="CHART"></li>
+					<li><input id="matrixButton" class="menuButton buttonDisabled" type="button" onClick="callMatrix()" value="LED MATRIX" disabled></li>
+					<li><input id="listButton" class="menuButton" type="button" onClick="callList()" value="LIST"></li>
+					<li><input id="settingsButton" class="menuButton" type="button" onClick="callModal()" value="SETTINGS"></li>
+				</ul>
+			</div>
+			<div class="contentColumn">
+				<div class="title">
+					<h>LED MATRIX</h>
+				</div>
+				<div class="ledMatrix">
+					<! -- FIRST ROW -- >
+					<div class="item"><input id="00" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="10" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="20" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="30" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="40" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="50" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="60" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="70" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- SECOND ROW -- >
+					<div class="item"><input id="01" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="11" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="21" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="31" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="41" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="51" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="61" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="71" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- THIRD ROW -- >
+					<div class="item"><input id="02" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="12" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="22" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="32" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="42" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="52" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="62" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="72" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- FOURTH ROW -- >
+					<div class="item"><input id="03" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="13" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="23" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="33" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="43" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="53" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="63" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="73" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- FIFTH ROW -- >
+					<div class="item"><input id="04" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="14" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="24" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="34" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="44" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="54" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="64" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="74" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- SIXTH ROW -- >
+					<div class="item"><input id="05" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="15" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="25" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="35" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="45" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="55" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="65" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="75" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- SEVENTH ROW -- >
+					<div class="item"><input id="06" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="16" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="26" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="36" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="46" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="56" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="66" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="76" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<! -- EIGHTH ROW -- >
+					<div class="item"><input id="07" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="17" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="27" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="37" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="47" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="57" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="67" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+					<div class="item"><input id="77" type="button" class="menuButton ledButton" onClick="getLEDParams(id)"></div>
+				</div>
+				<div class="ledColorPicker">
+					<div class="slideContainer">
+						<input type="range" min="0" max="255" value="0" class="slider sliderR" id="redSlider"> 
+					</div>
+					<div class="slideContainer">
+						<input type="range" min="0" max="255" value="0" class="slider sliderG" id="greenSlider">
+					</div>
+					<div class="slideContainer">
+						<input type="range" min="0" max="255" value="0" class="slider sliderB" id="blueSlider">
+					</div>
+					<div id="RGBtext" class="RGB">
+						RGB: (0,0,0)
+					</div>
+					<div id="colorBox" class="itemColorBox">
+					</div>
+					<div class="slideContainer">
+						<input id="lightButton" type="button" class="menuButton" value="LIGHT" onClick="sendData()">
+					</div>
+				</div>
+				<p id="debug">AWAITING NEW COMMANDS...</p>
+			</div>
+		</div>
+		
+		<!-- JS SCRIPTS -->
+		<script type="text/javascript" src="scripts/matrixScript.js"></script>
+		<script type="text/javascript" src="scripts/slidersScript.js"></script>
+		<script type="text/javascript" src="scripts/modalScript.js"></script>
+		
+	</body>
+</html>
