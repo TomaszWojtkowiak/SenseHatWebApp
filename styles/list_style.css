@@ -1,0 +1,41 @@
+.content-grid
+{
+	width: 850px;
+	margin: auto auto;
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: 300px 500px;
+}
+
+.list
+{
+	
+	font-size: 20px;
+	text-align: left;
+}
+
+.rdg
+{
+	border-style: solid;
+	line-height: 50px;
+	height: 50px;
+	margin: auto auto;
+	border-width: 1px;
+}
+
+span
+{
+	float: right;
+}
+
+.buttonDisabled
+{
+	background-color: rgba(0,120,66,0.5);
+	transition-duration: 0;
+	cursor: pointer;
+}
+
+#infoBox
+{
+	border-style: none;
+}

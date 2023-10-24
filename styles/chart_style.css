@@ -1,0 +1,47 @@
+#chartcontainer
+{
+	border-style: solid;
+	border-width: 2px;
+	width: 70%;
+}
+
+#chart
+{
+	border-style: solid;
+	border-width: 2px;
+	width: 60%;
+	margin: 0 auto;
+}
+
+#chartControl
+{
+	margin: auto auto;
+}
+
+.nav
+{
+	list-style-type: none;
+}
+
+.navButton
+{
+	width: 200px;
+	height:40px;
+}
+
+.nav-grid
+{
+	display: grid;
+	margin: auto auto;
+	grid-template-columns: 50% 50%;
+}
+
+.info
+{
+	font-size: 20px;
+}
+
+#infoBox
+{
+	font-size: 18px;
+}

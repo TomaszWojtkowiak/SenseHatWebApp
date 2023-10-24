@@ -1,0 +1,83 @@
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h
+{
+	font-weight: bold;
+	font-size: 40px;
+	margin: 40px, 40px;
+}
+
+.title
+{
+	height: 80px;
+}
+
+.menuButton
+{	
+	width: 200px;
+	height: 50px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	color: #000000;
+	background-color: rgba(0,255,140,1);
+	cursor: pointer;
+	font-size: 20px;
+	text-align: center;
+	transition-duration: 0.4s;
+}
+
+.buttonDisabled
+{
+	background-color: rgba(0,120,66,0.5);
+	cursor: not-allowed;
+	transition-duration: 0;
+}
+
+.menuColumn
+{
+	border-right-style: solid;
+	background-color: rgba(200,200,200,1);
+	float: left;
+	width: 15%;
+	padding: 5px;
+	border-width: 2px;
+	text-align: center;
+}
+
+.contentColumn
+{
+	background-color:rgba(220,220,220,0.5);
+	float: right;
+	width: 85%;
+	padding: 5px;
+	margin: auto;
+	text-align: center;
+	align-items: center;
+}
+
+.row:after
+{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.menuButton:hover
+{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.list
+{
+	list-style-type: none;
+	padding: 0;
+}
